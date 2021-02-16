@@ -12,11 +12,13 @@ class SimpleClass {
     public function stdout($str) 
     {
         $this->array[] = $str;
+        
         $newStr = implode(' ', $this->array);
 
         echo '<script>console.log("' . $newStr . '")</script>';
-
+        
         return $this;
+
     }
 
 }
