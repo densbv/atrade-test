@@ -2,7 +2,7 @@
 
 class SimpleClass {
 
-    private $array = [];
+    protected $string;
     
     public function __invoke()
     {
@@ -10,15 +10,17 @@ class SimpleClass {
     }
 
     public function stdout($str) 
-    {
-        $this->array[] = $str;
-        
-        $newStr = implode(' ', $this->array);
+    {    
+        $this->console($this->string .= $str . ' ');
 
-        echo '<script>console.log("' . $newStr . '")</script>';
-        
         return $this;
-
+    }
+    
+    private function console($str) 
+    {
+        echo '<script>'
+            . 'console.log("' . $str . '")'
+            . '</script>';
     }
 
 }
