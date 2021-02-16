@@ -15,7 +15,7 @@ class SimpleClass {
     {
         echo '<script>'
         . 'console.log("' . $str . '")'
-        . '</script>';
+        . '</script>'; 
     }
 
 }
