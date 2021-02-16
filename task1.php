@@ -2,7 +2,7 @@
 
 class SimpleClass {
 
-    protected $string;
+    private $string;
     
     public function __invoke()
     {
@@ -11,15 +11,19 @@ class SimpleClass {
 
     public function stdout($str) 
     {    
-        $this->console($this->string .= $str . ' ');
+        $this->string .= $str . ' ';
 
         return $this;
+      
+    }
+
+    public function __destruct() {
+        $this->console();
     }
     
-    private function console($str) 
-    {
+    private function console() {
         echo '<script>'
-            . 'console.log("' . $str . '")'
+            . 'console.log("' . $this->string . '")'
             . '</script>';
     }
 
