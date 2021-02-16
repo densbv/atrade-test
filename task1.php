@@ -22,6 +22,6 @@ class SimpleClass {
 }
 
 $obj = new SimpleClass;
-$obj()->stdout('Hello')->stdout('World');
+$obj()->stdout('Hello')->stdout('World'); 
 
 
