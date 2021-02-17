@@ -1,25 +1,24 @@
 <?php
 
-class SimpleClass {
+class Test {
 
-    public function __invoke(string $str = '') 
+    /**
+     * @var int id
+     */
+    private $id;
+
+    /**
+     * Returns an integer ID
+     * @return int
+     */
+    public function testMethod() 
     {
-        if ($str !== '') {
-            $this->console($str);
-        }
-
-        return $this;
-    }
-
-    public function console(string $str) 
-    {
-        echo '<script>'
-        . 'console.log("' . $str . '")'
-        . '</script>'; 
+        return $this->id;
     }
 
 }
 
-(new SimpleClass)('Hello')()('world')()('!');
+$rc = new ReflectionClass('Test');
+$str = $rc->getMethod('testMethod')->getDocComment();
 
-
+echo '<script>console.log(`' . $str . '`)</script>';
