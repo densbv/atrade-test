@@ -4,12 +4,10 @@ class SimpleClass {
 
     private $string;
 
-    public function __invoke(string $str = '') 
+    public function __invoke(string $str = '\n') 
     {
-        if ($str !== '') {
-            $this->string = $str;
-            $this->console();
-        }
+        $this->string = $str;
+        $this->console();
 
         return $this;
     }
