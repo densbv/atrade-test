@@ -4,12 +4,17 @@ class SimpleClass {
 
     private $string;
 
-    public function __invoke() 
+    public function __invoke(string $str = '') 
     {
+        if ($str !== '') {
+            $this->string = $str;
+            $this->console();
+        }
+
         return $this;
     }
 
-    public function stdout($str) 
+    public function stdout(string $str) 
     {
         $this->string .= $str . ' ';
 
@@ -32,5 +37,7 @@ class SimpleClass {
 
 $obj = new SimpleClass;
 $obj()->stdout('Hello')->stdout('World');
+
+(new SimpleClass)('Hello')()('world')()('!');
 
 
