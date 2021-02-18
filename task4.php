@@ -17,8 +17,9 @@ function getNum($max)
 }
 
 $data = getNum(5);
+
 for ($i = 0; $i < 10; ++$i) { 
-    print nl2br($data->current() . PHP_EOL);
+    print $data->current() . PHP_EOL;
     $data->next(); 
 }
 
